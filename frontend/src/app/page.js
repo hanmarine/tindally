@@ -7,6 +7,10 @@ import {
   CircularProgress,
   Grid,
   Pagination,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/productCard";
@@ -19,6 +23,7 @@ export default function ItemsPage() {
   const [mounted, setMounted] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOption, setSortOption] = useState("a-z");
   const itemsPerPage = 6;
 
   useEffect(() => {
@@ -53,15 +58,39 @@ export default function ItemsPage() {
     fetchItems();
   }, []);
 
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
+    setCurrentPage(1);
+  };
+
   if (!mounted) return null;
+
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const sortedItems = [...filteredItems].sort((a, b) => {
+    let priceA, priceB;
+    switch (sortOption) {
+      case "a-z":
+        return a.name.localeCompare(b.name);
+      case "largest-price-to-smallest":
+        priceA = a.price !== undefined ? Number(a.price) : 0;
+        priceB = b.price !== undefined ? Number(b.price) : 0;
+        return priceB - priceA;
+      case "smallest-price-to-largest":
+        priceA = a.price !== undefined ? Number(a.price) : 0;
+        priceB = b.price !== undefined ? Number(b.price) : 0;
+        return priceA - priceB;
+      default:
+        return 0;
+    }
+  });
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const currentItems = sortedItems.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(sortedItems.length / itemsPerPage);
 
   const handlePageChange = (_event, value) => {
     setCurrentPage(value);
@@ -83,12 +112,43 @@ export default function ItemsPage() {
           My Inventory
         </Typography>
 
-        {/* Search bar */}
-        <SearchBar
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search items..."
-        />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 4,
+          }}
+        >
+          {/* Search bar */}
+          <SearchBar
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search items..."
+          />
+          {/* Sorting Dropdown */}
+          <FormControl
+            sx={{ ml: 1, minWidth: 120, maxWidth: 120 }}
+            size="small"
+          >
+            <InputLabel id="sort-select-label">Sort By</InputLabel>
+            <Select
+              labelId="sort-select-label"
+              id="sort-select"
+              value={sortOption}
+              label="Sort By"
+              onChange={handleSortChange}
+            >
+              <MenuItem value="a-z">A-Z</MenuItem>
+              <MenuItem value="largest-price-to-smallest">
+                Price: High to Low
+              </MenuItem>
+              <MenuItem value="smallest-price-to-largest">
+                Price: Low to High
+              </MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
 
         {/* Loading Items */}
         {isLoading ? (
@@ -102,7 +162,7 @@ export default function ItemsPage() {
               gap: 2,
             }}
           >
-            <CircularProgress size={60} sx={{ color: "white" }} />{" "}
+            <CircularProgress size={60} sx={{ color: "white" }} />
             <Typography variant="h6" color="text.secondary">
               Loading items...
             </Typography>

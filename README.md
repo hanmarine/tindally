@@ -1,4 +1,4 @@
-# Tindahan Tally
+# Tindally
 
 ### A full-stack web application for managing a list of items.
 

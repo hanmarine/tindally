@@ -20,7 +20,6 @@ export const SearchBar = ({ value, onChange, placeholder = "Search..." }) => (
         },
       }}
       fullWidth
-      sx={{ mb: 2 }}
     />
   </Box>
 );

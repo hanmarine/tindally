@@ -28,7 +28,13 @@ export default function ProductCard({ id, title, description, price }) {
       }}
     >
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom fontWeight="bold" variant="h5" component="div">
+        <Typography
+          gutterBottom
+          className="product-name"
+          fontWeight="bold"
+          variant="h5"
+          component="div"
+        >
           {title && title.length > 15 ? `${title.slice(0, 15)}...` : title}
         </Typography>
         <Typography variant="h6" color="text.primary" sx={{ mt: 2 }}>

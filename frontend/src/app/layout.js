@@ -9,7 +9,7 @@ const inter = Outfit({
 });
 
 export const metadata = {
-  title: "Tindahan Tally",
+  title: "Tindally",
   description:
     "Keeping tally of all the items, their descriptions, and their prices on the store.",
 };

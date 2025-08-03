@@ -8,7 +8,7 @@ const customTheme = createTheme({
     mode: "dark",
     background: {
       default: "#121212",
-      paper: "#16121f",
+      paper: "#09112b",
     },
   },
 });
