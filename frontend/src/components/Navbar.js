@@ -102,27 +102,6 @@ function Navbar() {
                 Create Item
               </Typography>
             </Link>
-            <Link href="/about" passHref>
-              <Typography
-                component="span"
-                sx={{
-                  fontFamily: "var(--font-inter), sans-serif",
-                  textDecoration: "none",
-                  color: theme.palette.text.primary,
-                  fontSize: "16px",
-                  marginLeft: theme.spacing(6),
-                  paddingBottom: theme.spacing(0.5),
-                  borderBottom: "1px solid transparent",
-                  transition: "all 0.3s ease-in-out",
-                  "&:hover": {
-                    color: theme.palette.primary.main,
-                    borderColor: theme.palette.primary.main,
-                  },
-                }}
-              >
-                About
-              </Typography>
-            </Link>
           </Box>
         )}
       </Toolbar>
