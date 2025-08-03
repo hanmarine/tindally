@@ -15,6 +15,7 @@ import {
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/productCard";
 import { SearchBar } from "../components/searchBar";
+import Footer from "../components/Footer";
 
 export default function ItemsPage() {
   const [items, setItems] = useState([]);
@@ -250,6 +251,7 @@ export default function ItemsPage() {
           </>
         )}
       </Container>
+      <Footer />
     </div>
   );
 }

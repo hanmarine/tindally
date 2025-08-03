@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import DrawerComponent from "./Drawer";
+import Image from "next/image";
 
 function Navbar() {
   const theme = useTheme();
@@ -33,18 +34,7 @@ function Navbar() {
       <Toolbar>
         {/* Logo/App Title */}
         <Link href="/" passHref style={{ textDecoration: "none", flexGrow: 1 }}>
-          <Typography
-            variant="h5"
-            sx={{
-              fontFamily: "var(--font-inter), sans-serif",
-              color: theme.palette.text.primary,
-              "&:hover": {
-                color: theme.palette.primary.light,
-              },
-            }}
-          >
-            The Services
-          </Typography>
+          <Image src="/logo.png" width={30} height={20} alt="Tindally logo" />
         </Link>
 
         {/* Conditional rendering based on screen size */}
@@ -110,6 +100,27 @@ function Navbar() {
                 }}
               >
                 Create Item
+              </Typography>
+            </Link>
+            <Link href="/about" passHref>
+              <Typography
+                component="span"
+                sx={{
+                  fontFamily: "var(--font-inter), sans-serif",
+                  textDecoration: "none",
+                  color: theme.palette.text.primary,
+                  fontSize: "16px",
+                  marginLeft: theme.spacing(6),
+                  paddingBottom: theme.spacing(0.5),
+                  borderBottom: "1px solid transparent",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    color: theme.palette.primary.main,
+                    borderColor: theme.palette.primary.main,
+                  },
+                }}
+              >
+                About
               </Typography>
             </Link>
           </Box>

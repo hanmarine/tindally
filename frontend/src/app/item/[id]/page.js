@@ -20,6 +20,7 @@ import {
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Navbar from "../../../components/Navbar";
 import { UpdateItemModal, DeleteItemModal } from "../../../components/modals";
+import Footer from "../../../components/Footer";
 
 export default function ItemDetailsPage() {
   const { id } = useParams();
@@ -293,6 +294,7 @@ export default function ItemDetailsPage() {
           </Button>
         </DialogActions>
       </Dialog>
+      <Footer />
     </div>
   );
 }

@@ -8,3 +8,23 @@
 .product-name {
   color: #b0e0e6;
 }
+
+#github-link::before,
+#github-link::after {
+  content: " ";
+}
+
+#copy-link::before {
+  content: " ";
+}
+
+#copy-link,
+#github-link {
+  text-decoration: none;
+  color: #b0e0e6;
+  transition: 0.5s ease;
+}
+
+#github-link:hover {
+  color: #fff;
+}

@@ -1,8 +1,8 @@
+![header logo](/screenshots/header.png)
+
 # Tindally
 
-### A full-stack web application for managing a list of items.
-
----
+(aka Tindahan Tally) - A full-stack web application for managing a list of items.
 
 ## Key Features
 
@@ -10,29 +10,19 @@
 - **RESTful API:** A well-defined API built with Flask.
 - **Responsive UI:** A user-friendly interface built with Next.js and Material-UI.
 
----
-
 ## Tech Stack
 
-- **Backend:** Python (Flask) and Flask-SQLAlchemy.
+- **Backend:** Python (Flask) and SQLite.
 - **Frontend:** Next.js, React and Material-UI
 - **Tests:** Pytest (backend) and Jest (frontend)
 
----
-
-## Getting Started
-
-To get started, clone the repository and follow the setup instructions in the `README.md` files located in the `/backend` and `/frontend` directories.
-
-**Backend:** `cd backend` and `pip install -r requirements.txt`
-**Frontend:** `cd frontend` and `npm install`
-
----
-
 ## Pages
 
-- **View All Items**: The homepage displays a list of all available items from the database.
-- **View Item Details**: Click on an item to see its dedicated page with full details.
+- **View All Items**: The inventory page displays a list of all available items from the database.
+  ![Inventory page](/screenshots/inventory.png)
+
+- **View Item Details**: Click on an item to see its dedicated page with full details and to update and delete the item.
+  ![Item details page](/screenshots/details.png)
+
 - **Create New Items**: A user-friendly form allows for the creation of new items with validation.
-- **Update Items**: Edit the details of an existing item.
-- **Delete Items**: Remove an item from the database.
+  ![Create an item page](/screenshots/new-item.png)

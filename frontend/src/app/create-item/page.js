@@ -15,6 +15,7 @@ import {
 import Navbar from "../../components/Navbar";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
+import Footer from "../../components/Footer";
 
 // Zod validation
 const itemSchema = z.object({
@@ -250,6 +251,7 @@ function CreateItemPage() {
           </Button>
         </DialogActions>
       </Dialog>
+      <Footer />
     </Box>
   );
 }
