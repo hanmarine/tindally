@@ -1,4 +1,4 @@
-![header logo](/screenshots/header.png)
+<img src="/screenshots/header.png" height="300" width="150" />
 
 # Tindally
 
