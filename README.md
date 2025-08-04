@@ -2,7 +2,9 @@
 
 # Tindally
 
+<img src="https://skillicons.dev/icons?i=nextjs,react,materialui,flask,sqlite" /><br>
 (aka Tindahan Tally) - A full-stack web application for managing a list of items.
+
 
 ## Key Features
 
