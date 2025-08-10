@@ -1,7 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 
 export default function Footer() {
-  const theme = useTheme();
   const getYear = () => {
     const today = new Date();
     const year = today.getFullYear();
@@ -12,7 +11,6 @@ export default function Footer() {
       sx={{
         textAlign: "center",
         p: "10px",
-        backgroundColor: theme.palette.background.paper,
       }}
     >
       <Typography>
